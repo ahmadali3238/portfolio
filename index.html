@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmad Ali</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Ahmad Ali</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Ahmad Ali</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container slideInLeft">
+        <img src="./assets/profile-pic.png" alt="Ahmad Ali profile picture" />
+      </div>
+      <div class="section__text slideInRight">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Ahmad Ali</h1>
+        <p class="section__text__p2">
+          Asset Management Specialist | RFID Asset Tracking Supervisor
+        </p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/Ahmad-Ali-CV-2024.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="window.open('https://www.linkedin.com/in/ahmadali3238', '_blank')"
+          />
+          <img
+            src="./assets/instagram.png"
+            alt="My Instagram profile"
+            class="icon"
+            onclick="window.open('https://www.instagram.com/ahmmad___ali/', '_blank')"
+          />
+          <img
+            src="./assets/facebook.png"
+            alt="My Facebook profile"
+            class="icon"
+            onclick="window.open('https://www.facebook.com/ahmadali3238', '_blank')"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/about-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>
+                Asset Management Specialist <br />
+                RFID Tracking Supervisor <br />
+                Sales Assistant <br />
+                Front Desk Manager
+              </p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>
+                DAE (Civil) <br />
+                Science Institute of Technology <br />
+                Computer Course (MS Office) <br />
+                TEVTA, Pakistan
+              </p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              Experienced Asset Management Specialist and RFID Asset Tracking
+              Supervisor with a proven ability to oversee asset inventory
+              processes. Strong expertise in managing inventory using advanced
+              RFID systems, leading teams, and optimizing operations to enhance
+              asset visibility and accuracy. Passionate about leveraging
+              technology to improve business efficiency and customer
+              satisfaction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Skills</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Core Skills</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Skill icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Asset Management</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Skill icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>RFID Tagging</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Skill icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Inventory Management</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Skill icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Team Leadership</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Skill icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Microsoft Office</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Work Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <h2 class="experience-sub-title project-title">
+              Asset Inventory Specialist
+            </h2>
+            <h3>Acube InfoTech LLC, UAE</h3>
+            <h4 class="date-duration">10/2022 - Present</h4>
+            <div class="article-container">
+              <ul>
+                <li>
+                  Managed and supervised the fixed asset inventory process for
+                  multiple client organizations.
+                </li>
+                <li>
+                  Responsible for tagging assets with RFID tags to maintain
+                  accurate records of company assets.
+                </li>
+                <li>
+                  Led a team of technicians in scanning and updating asset
+                  information using advanced inventory software.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <h2 class="experience-sub-title project-title">Sales Assistant</h2>
+            <h3>Toyota Center, Pakistan</h3>
+            <h4 class="date-duration">07/2019 - 09/2022</h4>
+            <div class="article-container">
+              <ul>
+                <li>
+                  Managed merchandise stocking and restocking while maintaining
+                  inventory accuracy.
+                </li>
+                <li>
+                  Delivered 25 cars to customers in the last 5 months,
+                  consistently meeting sales targets.
+                </li>
+                <li>
+                  Provided personalized customer service, ensuring clients found
+                  the right car based on their needs.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <h2 class="experience-sub-title project-title">
+              Front Desk Manager
+            </h2>
+            <h3>Chieftain Hotel, Pakistan</h3>
+            <h4 class="date-duration">03/2016 - 06/2019</h4>
+            <div class="article-container">
+              <ul>
+                <li>
+                  Welcomed guests and checked them into rooms efficiently using
+                  the hotel's management system.
+                </li>
+                <li>
+                  Resolved customer complaints swiftly, enhancing customer
+                  satisfaction and loyalty.
+                </li>
+                <li>
+                  Coordinated with other hotel departments to maintain smooth
+                  guest services.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="section__text__p1">Connect With Me</p>
+      <h1 class="title">Contact Info</h1>
+      <div class="contact-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2>Email</h2>
+            <a href="mailto:ahmadalibusiness3238@gmail.com" target="_blank"
+              >ahmadalibusiness3238@gmail.com</a
+            >
+          </div>
+          <div class="details-container">
+            <h2>Phone</h2>
+            <a href="tel:+971-523-456789" target="_blank">+971 523 456789</a>
+          </div>
+          <div class="details-container">
+            <h2>Location</h2>
+            <p>Dubai, UAE</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>
+        <small> &copy; Ahmad Ali. All Rights Reserved 2024.</small>
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
