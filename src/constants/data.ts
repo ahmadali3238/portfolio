@@ -724,7 +724,7 @@ export const META = {
   documentType,
   resumeFileName: `Ahmad-Ali-${documentType}-${currentYear}.pdf`,
   greeting: PORTFOLIO_CONTENT.profile.greeting,
-  profileImage: "/profile-pic.png",
+  profileImage: "/ahmad-ali-hero.png",
   aboutImage: "/about-pic.png",
   siteDescription: PORTFOLIO_CONTENT.summaries.seo,
 };
