@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/", label: "Home", matchExact: true },
   { href: "/projects", label: "Engagements", matchPrefix: "/projects" },
   { href: "/#contact", label: "Contact" },
+  { href: "/admin", label: "Admin", matchPrefix: "/admin" },
 ];
 
 export default function SiteHeader() {

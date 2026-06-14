@@ -30,7 +30,7 @@ export default function ExperienceSection() {
                       <div className="flex justify-center">
                         {(() => {
                           const logoBox = (
-                            <div className="w-16 h-16 rounded-lg bg-background/50 p-2 shadow-card hover:shadow-glow transition-all duration-300 flex items-center justify-center overflow-hidden">
+                            <div className="w-16 h-16 rounded-lg bg-white p-2 shadow-card hover:shadow-glow transition-all duration-300 flex items-center justify-center overflow-hidden">
                               {exp.logo ? (
                                 <Image
                                   src={exp.logo}

@@ -1,21 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Github, ExternalLink, Lock } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { ProjectPreview } from "@/constants/data";
 import { getProjectUrl } from "@/constants/data";
-import { toast } from "sonner";
 
 interface ProjectCardProps {
   readonly project: ProjectPreview;
-}
-
-function handlePrivateRepo() {
-  toast.info("Private Repository", {
-    description:
-      "This repository is private due to enterprise or client confidentiality.",
-  });
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
@@ -66,7 +58,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <Button variant="secondary" size="sm" className="flex-1" asChild>
             <Link href={url}>Case Study</Link>
           </Button>
-          {project.github ? (
+          {project.github && (
             <Button variant="outline" size="sm" className="flex-1" asChild>
               <a
                 href={project.github}
@@ -77,16 +69,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 <Github className="w-4 h-4 mr-2" />
                 GitHub
               </a>
-            </Button>
-          ) : (
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex-1 opacity-70"
-              onClick={handlePrivateRepo}
-            >
-              <Lock className="w-4 h-4 mr-2" />
-              Private Repo
             </Button>
           )}
 

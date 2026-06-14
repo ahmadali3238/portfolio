@@ -56,7 +56,7 @@ interface ExperienceEntry {
   duration: string;
   current: boolean;
   website: string;
-  logo: StaticImageData | null;
+  logo: string | null;
   highlights: string[];
   featuredOnResume: boolean;
 }
@@ -246,7 +246,7 @@ const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     duration: "Jan 2026 – Present",
     current: true,
     website: "https://nepgroup.com/",
-    logo: null,
+    logo: "/nep-logo.jpeg",
     highlights: [
       "Plan and track the equipment, assets, and resources behind live sports and entertainment productions, ensuring the right gear is allocated and available for each production.",
       "Coordinate with warehouse, operations, and logistics teams to schedule and allocate production assets.",
@@ -263,7 +263,7 @@ const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     duration: "Jan 2025 – Jan 2026",
     current: false,
     website: "https://nepgroup.com/",
-    logo: null,
+    logo: "/nep-logo.jpeg",
     highlights: [
       "Supervised daily warehouse operations and crew handling broadcast and live-production equipment.",
       "Managed shipping and receiving of equipment, including check-in/check-out, dispatch, and return workflows.",
@@ -280,7 +280,7 @@ const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     duration: "Oct 2022 – Jan 2025",
     current: false,
     website: "https://www.acubeinfotech.com/",
-    logo: null,
+    logo: "/acube-logo.png",
     highlights: [
       "Managed and supervised the fixed-asset inventory and audit process for multiple client organizations, maintaining accurate records of company assets.",
       "Tagged assets with Radio Frequency Identification (RFID) tags to maintain accurate, traceable records of company assets.",
@@ -297,7 +297,7 @@ const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     duration: "Jul 2019 – Sep 2022",
     current: false,
     website: "",
-    logo: null,
+    logo: "/toyota-logo.jpeg",
     highlights: [
       "Stocked and restocked merchandise, maintaining inventory accuracy and ensuring product availability on the showroom floor.",
       "Delivered 25 cars to customers over a five-month period while consistently meeting sales targets.",
@@ -313,7 +313,7 @@ const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     duration: "Apr 2018 – Jun 2019",
     current: false,
     website: "",
-    logo: null,
+    logo: "/chieftan-hotel-logo.jpeg",
     highlights: [
       "Supervised day-to-day front-desk and reception operations.",
       "Trained and managed staff to deliver consistent, high-quality service.",

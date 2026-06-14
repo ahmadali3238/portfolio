@@ -23,7 +23,7 @@ export const PROJECT_ENTRIES: ProjectEntry[] = [
     title: "RFID Fixed-Asset Tagging & Audit — Multi-Client Rollout",
     titleShort: "RFID Fixed-Asset Tagging",
     duration: "Oct 2022 – Jan 2025",
-    image: "/placeholder.png",
+    image: "/engagements/rfid.png",
     description:
       "Led a team of technicians delivering RFID fixed-asset tagging, scanning, and audit for multiple client organizations, keeping their asset registers accurate, traceable, and reconciled.",
     resumeDescription:
@@ -89,7 +89,7 @@ export const PROJECT_ENTRIES: ProjectEntry[] = [
     title: "Broadcast & Live-Production Asset Planning",
     titleShort: "Broadcast Asset Planning",
     duration: "Jan 2026 – Present",
-    image: "/placeholder-2.png",
+    image: "/engagements/broadcast.png",
     description:
       "Plan and track the equipment, assets, and resources behind live sports and entertainment productions, making sure the right gear is allocated and available for every production.",
     resumeDescription:
@@ -141,7 +141,7 @@ export const PROJECT_ENTRIES: ProjectEntry[] = [
     title: "Warehouse Supervision & Internal Promotion to Asset Planning",
     titleShort: "Warehouse Turnaround & Promotion",
     duration: "Jan 2025 – Jan 2026",
-    image: "/placeholder.png",
+    image: "/engagements/warehouse.png",
     description:
       "Supervised warehouse operations and crew handling broadcast and live-production equipment, and delivered the inventory-control and supervisory performance that earned an internal promotion to Asset Planning Specialist.",
     resumeDescription:
@@ -194,7 +194,7 @@ export const PROJECT_ENTRIES: ProjectEntry[] = [
     title: "25-Vehicle Delivery Program",
     titleShort: "25-Vehicle Delivery Program",
     duration: "2019 – 2022",
-    image: "/placeholder-2.png",
+    image: "/engagements/vehicle.png",
     description:
       "Planned and executed the delivery of 25 vehicles to customers over a five-month period while consistently meeting sales targets and maintaining showroom inventory accuracy.",
     resumeDescription:
