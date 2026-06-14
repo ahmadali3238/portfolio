@@ -1,0 +1,59 @@
+name: Outreach Engine
+
+on:
+  schedule:
+    # 20:30 UTC Sun–Thu  =  1:30 AM Mon–Fri in Asia/Karachi (UTC+5).
+    # Runs overnight so the drafts + review digest are waiting when you wake up.
+    # Draft mode: nothing is sent automatically.
+    - cron: "30 20 * * 0-4"
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: "Run a single stage (source|enrich|draft|send|followup) or blank for full pipeline"
+        required: false
+        default: ""
+        type: string
+      dry_run:
+        description: "1 = no external writes"
+        required: false
+        default: "0"
+        type: string
+
+concurrency:
+  group: outreach-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  outreach:
+    runs-on: ubuntu-latest
+    # headroom for: draft-stage rate-limit pacing (5s/lead), slow free-finder scrapes
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.28.0
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+
+      # Operational config comes from scripts/outreach/outreach.config.json (committed).
+      # CI only injects SECRETS + the dry-run safety flag.
+      - name: Run outreach pipeline
+        run: pnpm run outreach:run ${{ github.event.inputs.stage }}
+        env:
+          # Draft mode is safe to run live (no auto-send) — defaults to 0 so the daily
+          # pipeline actually sources, drafts, and emails you the digest.
+          OUTREACH_DRY_RUN: ${{ github.event.inputs.dry_run || vars.OUTREACH_DRY_RUN || '0' }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          # Digest is sent via Resend (HTTP API works from CI; Gmail SMTP is blocked from cloud IPs)
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}

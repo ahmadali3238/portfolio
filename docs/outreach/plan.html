@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Outreach Engine — The Plan (Simple Version)</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#121a33; --panel2:#172447; --ink:#e8edff; --muted:#9fb0d8;
+    --line:#2a3a66; --accent:#6ea8ff; --green:#4ade80; --amber:#fbbf24; --red:#fb7185;
+    --purple:#c084fc; --teal:#2dd4bf;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#0b1020,#0d1430);color:var(--ink);
+    font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:1000px;margin:0 auto;padding:40px 20px 80px}
+  header.hero{text-align:center;margin-bottom:34px}
+  header.hero h1{font-size:34px;margin:0 0 8px;letter-spacing:-.5px}
+  header.hero p{color:var(--muted);max-width:680px;margin:0 auto;font-size:17px}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .badge{background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+    padding:5px 13px;font-size:13px;color:var(--muted)}
+  .badge b{color:var(--ink)}
+  section{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:24px 26px;margin:18px 0}
+  section h2{margin:0 0 4px;font-size:21px;display:flex;align-items:center;gap:10px}
+  section h2 .n{background:var(--accent);color:#06122e;border-radius:8px;width:28px;height:28px;
+    display:inline-grid;place-items:center;font-size:15px;font-weight:700}
+  .sub{color:var(--muted);margin:0 0 16px;font-size:14px}
+  /* Flow diagram */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .row{display:flex;align-items:stretch;gap:14px;flex-wrap:wrap;justify-content:center}
+  .step{flex:1 1 160px;min-width:150px;background:var(--panel2);border:1px solid var(--line);
+    border-radius:14px;padding:14px 14px 12px;position:relative}
+  .step .cap{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .step .ttl{font-weight:700;margin:3px 0 6px;font-size:16px}
+  .step ul{margin:0;padding-left:16px;font-size:13px;color:var(--muted)}
+  .step.free{border-color:#1f6f4a}
+  .step.paid{border-color:#7a5cbf}
+  .step .tag{position:absolute;top:-10px;right:10px;font-size:10px;font-weight:700;
+    padding:2px 8px;border-radius:999px}
+  .tag.free{background:var(--green);color:#04130a}
+  .tag.paid{background:var(--purple);color:#1a0833}
+  .arrow{align-self:center;color:var(--accent);font-size:24px;font-weight:700;flex:0 0 auto}
+  .varrow{text-align:center;color:var(--accent);font-size:22px;margin:6px 0}
+  .store{margin-top:8px;background:#0e1730;border:1px dashed var(--line);border-radius:12px;
+    padding:12px 14px;text-align:center;color:var(--muted);font-size:14px}
+  .store b{color:var(--teal)}
+  /* generic */
+  .grid{display:grid;gap:12px}
+  .grid.two{grid-template-columns:1fr 1fr}
+  .grid.three{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:680px){.grid.two,.grid.three{grid-template-columns:1fr}}
+  .card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .card h3{margin:0 0 6px;font-size:15px}
+  .card p{margin:0;font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
+  .pill.free{background:rgba(74,222,128,.15);color:var(--green)}
+  .pill.low{background:rgba(251,191,36,.15);color:var(--amber)}
+  .pill.zero{background:rgba(110,168,255,.15);color:var(--accent)}
+  .callout{border-left:4px solid var(--amber);background:rgba(251,191,36,.08);
+    padding:14px 16px;border-radius:0 12px 12px 0;margin:14px 0}
+  .callout.good{border-color:var(--green);background:rgba(74,222,128,.08)}
+  .callout b{color:var(--ink)}
+  ol.steps{padding-left:20px}
+  ol.steps li{margin:8px 0}
+  .you{background:rgba(110,168,255,.08);border:1px solid var(--line);border-radius:12px;padding:6px 14px}
+  .muted{color:var(--muted)}
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+  code{background:#0e1730;padding:1px 6px;border-radius:6px;font-size:13px;color:var(--teal)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>🎯 The Outreach Engine</h1>
+    <p>A machine that quietly finds companies who need exactly what you build,
+       writes each of them a personal email, and helps you turn replies into clients —
+       running mostly on autopilot.</p>
+    <div class="badges">
+      <span class="badge"><b>100% free</b> stack — no paid keys</span>
+      <span class="badge">Paid tools: <b>optional, off by default</b></span>
+      <span class="badge">Your portfolio: <b>0% ban risk</b></span>
+    </div>
+  </header>
+
+  <!-- THE BIG IDEA -->
+  <section>
+    <h2><span class="n">1</span> The big idea in one line</h2>
+    <p class="sub">Five simple stages, each one hands off to the next.</p>
+    <p><b>Find</b> companies hiring for your skills → <b>get</b> the right person's email →
+       <b>write</b> them a personal note → <b>send</b> it safely → <b>follow up</b> smartly.
+       A row of data travels through all five stages automatically. You stay in control
+       at the parts that matter (approving sends and replies).</p>
+  </section>
+
+  <!-- FLOW DIAGRAM -->
+  <section>
+    <h2><span class="n">2</span> How it flows</h2>
+    <p class="sub">Every step is <b>free</b>. Follow the arrows.</p>
+    <div class="flow">
+      <div class="row">
+        <div class="step free"><span class="tag free">FREE</span>
+          <div class="cap">Step 1 · Find</div>
+          <div class="ttl">Source leads</div>
+          <ul>
+            <li>HN "Who is Hiring"</li>
+            <li>RemoteOK · We Work Remotely</li>
+            <li>Reddit r/forhire · Wellfound</li>
+            <li>YC · Indie Hackers</li>
+          </ul>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step free"><span class="tag free">FREE</span>
+          <div class="cap">Step 2 · Get email</div>
+          <div class="ttl">Enrich</div>
+          <ul>
+            <li>Email in post (29%, measured)</li>
+            <li>+ scrape company site (free, proven)</li>
+          </ul>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step free"><span class="tag free">FREE</span>
+          <div class="cap">Step 3 · Write</div>
+          <div class="ttl">Personalize</div>
+          <ul>
+            <li>Groq/Gemini free tier writes a custom email</li>
+            <li>mentions their need + your matching project</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="varrow">↓</div>
+
+      <div class="row">
+        <div class="step free"><span class="tag free">FREE</span>
+          <div class="cap">Step 4 · Send</div>
+          <div class="ttl">Deliver (your choice)</div>
+          <ul>
+            <li><b>Draft</b> → 1-click "Open in Gmail"</li>
+            <li><b>Auto</b> → via a $1 side domain</li>
+            <li><b>Export</b> → CSV for LinkedIn/Upwork</li>
+          </ul>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step free"><span class="tag free">FREE</span>
+          <div class="cap">Step 5 · Convert</div>
+          <div class="ttl">Reply &amp; follow-up</div>
+          <ul>
+            <li>Groq/Gemini reads the reply, sorts it</li>
+            <li>drafts the perfect follow-up</li>
+            <li>auto or manual — your call</li>
+          </ul>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step" style="border-color:#1f6f4a;background:#0e2a1d">
+          <div class="cap">Result</div>
+          <div class="ttl">🤝 A client</div>
+          <ul><li>Meeting booked → project → paid.</li></ul>
+        </div>
+      </div>
+
+      <div class="store">
+        Every step's data is saved in <b>Supabase</b> (free) and shown on your
+        <b>portfolio admin dashboard</b> — where you watch progress and approve things.
+        The dashboard <b>never sends email</b>, so your site is never at risk.
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THESE LEADS -->
+  <section>
+    <h2><span class="n">3</span> Why these leads are the good ones</h2>
+    <p class="sub">We don't email random companies. We email ones <i>raising their hand right now.</i></p>
+    <div class="grid two">
+      <div class="card"><h3>A live job post = a real need + budget</h3>
+        <p>If a startup just posted a "Next.js / AI engineer" role, they have the
+           problem you solve <i>and</i> money set aside. That's the warmest cold lead there is.</p></div>
+      <div class="card"><h3>We match their words to your work</h3>
+        <p>Each lead is scored 0–100 on how well their stack matches yours. Low scores are
+           dropped. Claude then cites the <i>one</i> project of yours that fits them best.</p></div>
+    </div>
+  </section>
+
+  <!-- THE HONEST BIT -->
+  <section>
+    <h2><span class="n">4</span> The honest bit about sending</h2>
+    <div class="callout">
+      <b>You asked to send from a free Vercel domain — that isn't possible.</b>
+      A <code>vercel.app</code> address can't be set up to send real email (no DKIM/SPF/MX),
+      so those messages bounce or hit spam. And "free + huge volume + safe" cold email
+      doesn't exist anywhere — pick any three.
+    </div>
+    <div class="callout good">
+      <b>The good news:</b> your portfolio doesn't send mail at all, so it's
+      <b>100% safe no matter what.</b> You start in <b>Draft mode</b> (free, zero risk):
+      Claude writes the email, you click "Open in Gmail" and hit send. When you're ready
+      to automate, a <b>$1–10/year side domain</b> unlocks safe auto-send — one tiny cost,
+      everything else stays free.
+    </div>
+    <table>
+      <tr><th>Mode</th><th>Cost</th><th>Volume</th><th>Risk to you</th><th>Use when</th></tr>
+      <tr><td><b>Draft</b> <span class="muted">(default)</span></td><td><span class="pill free">Free</span></td>
+        <td>You send by hand</td><td><span class="pill zero">Zero</span></td><td>Starting out — best replies</td></tr>
+      <tr><td><b>Gmail Send</b> <span class="muted">(no Gmail app)</span></td><td><span class="pill free">Free</span></td>
+        <td>Modest (go slow)</td><td><span class="pill low">Low (your Gmail only)</span></td><td>Want a "Send" button, no domain</td></tr>
+      <tr><td><b>Auto (SMTP)</b></td><td><span class="pill low">~$1–10/yr</span></td>
+        <td>~20–50/day per inbox</td><td><span class="pill low">Low (side domain only)</span></td><td>Messaging is proven, want scale</td></tr>
+      <tr><td><b>Export</b></td><td><span class="pill free">Free</span></td>
+        <td>Bulk CSV</td><td><span class="pill zero">Zero</span></td><td>LinkedIn / Upwork by hand</td></tr>
+    </table>
+    <div class="callout good" style="margin-top:14px">
+      <b>"Send without opening Gmail" = Gmail Send mode.</b> You create a Google
+      <b>app password</b> once, and the dashboard's <b>Send</b> button mails it straight
+      through your Gmail — no domain, no opening the app. Your portfolio domain is never
+      in the sending path, so it still can't be flagged.
+    </div>
+  </section>
+
+  <!-- FREE TIER STRATEGY -->
+  <section>
+    <h2><span class="n">4.5</span> Running it entirely free (no paid keys)</h2>
+    <p class="sub">The whole stack runs on free tiers. Paid tools (Claude, BetterContact)
+       are wired in but <b>switched off by default</b> — you never have to spend.</p>
+    <div class="grid two">
+      <div class="card"><h3>✍️ Writing emails → free</h3>
+        <p>Your site already has <b>Groq</b> and <b>Gemini</b> — both with generous
+           <b>free tiers</b>. They draft every email and sort every reply. Cost: <b>₨0</b>.
+           (Claude can be switched on later if you ever want it — off by default.)</p></div>
+      <div class="card"><h3>📧 Finding emails → free &amp; proven</h3>
+        <p>Email already in the post (≈29%, measured) + <b>scraping the company's contact
+           page</b> (proven live on real leads). For your top 10–20 leads/week you can also
+           run a free finder's browser extension by hand. <b>No paid API, no ToS risk.</b>
+           <span class="muted">(Note: Prospeo/Hunter/Apollo free tiers have no API — paid only.)</span></p></div>
+    </div>
+  </section>
+
+  <!-- COUNTRIES -->
+  <section>
+    <h2><span class="n">4.6</span> Who we target: the rich markets, not the cheap ones</h2>
+    <div class="callout">
+      <b>Important twist:</b> most "best country" lists rank where to hire <i>cheap devs
+      from</i> — that's <b>you</b>. We flip it and chase where the <b>buyers with budget</b> are.
+    </div>
+    <div class="grid three">
+      <div class="card" style="border-color:#1f6f4a"><h3>🥇 Tier 1 — hit hardest</h3>
+        <p>🇺🇸 USA · 🇦🇪 UAE/Dubai · 🇬🇧 UK · 🇨🇦 Canada · 🇦🇺 Australia · 🇩🇪 Germany · 🇳🇱 Netherlands ·
+           any "remote-worldwide" company.<br><span class="muted">Biggest budgets, most AI demand.
+           UAE is ~1h from you and loves hiring Pakistani devs.</span></p></div>
+      <div class="card" style="border-color:#7a5cbf"><h3>🥈 Tier 2 — secondary</h3>
+        <p>🇮🇪 Ireland · 🇸🇬 Singapore · Nordics · 🇨🇭 Switzerland · 🇸🇦 Saudi/Qatar · 🇳🇿 NZ · 🇮🇱 Israel.
+           <br><span class="muted">Good budgets, remote-friendly.</span></p></div>
+      <div class="card" style="border-color:#7a3b48"><h3>⛔ Excluded — weak currency</h3>
+        <p>India · Pakistan · Bangladesh · Nigeria · Egypt · Indonesia · Philippines ·
+           Vietnam · Argentina … <br><span class="muted">Weak local currency = unviable
+           budgets. <b>Hard-excluded</b> — never emailed or enriched. Fully editable list.</span></p></div>
+    </div>
+    <p class="muted" style="margin-top:12px">Each lead is auto-scored by country, so your
+       paid credits and emails go to the people most likely to pay well. Agentic-AI job
+       postings jumped <b>+985%</b> — demand is everywhere; we aim it at the budgets.</p>
+  </section>
+
+  <!-- SEGMENTS -->
+  <section>
+    <h2><span class="n">4.7</span> Two kinds of people we contact</h2>
+    <p class="sub">Not just companies hiring — also ones who <i>aren't</i> but clearly need you.</p>
+    <div class="grid two">
+      <div class="card"><h3>🔥 "Hiring signal" — warm</h3>
+        <p>They just posted a job for your exact stack. Angle: <i>"I saw you're hiring for
+           X — I've shipped exactly that. Worth a chat before a full-time hire?"</i>
+           <br><span class="muted">From: HN, RemoteOK, We Work Remotely.</span></p></div>
+      <div class="card"><h3>💡 "Prospect" — not hiring, still needs you</h3>
+        <p>New startups, fresh product launches, businesses with weak/old sites. Angle:
+           <i>"I built X for companies like yours — here's a concrete idea for you."</i>
+           <br><span class="muted">From: YC, Product Hunt, local businesses. This widens your funnel a lot.</span></p></div>
+    </div>
+  </section>
+
+  <!-- CONVERSATIONS -->
+  <section>
+    <h2><span class="n">4.8</span> See every conversation in one place</h2>
+    <p class="sub">You always know where each lead stands.</p>
+    <div class="grid two">
+      <div class="card"><h3>💬 Chat-style thread per lead</h3>
+        <p>Click any company and see the whole back-and-forth in order — your first email,
+           follow-ups, and their replies — with dates and status.</p></div>
+      <div class="card"><h3>🧠 Auto reply handling</h3>
+        <p>Replies are pulled from your Gmail automatically (IMAP), sorted by Claude/Groq
+           (interested? objection? not now?), and a tailored follow-up is drafted for you.</p></div>
+    </div>
+    <div class="callout good" style="margin-top:14px">
+      <b>Who received / engaged / replied:</b> every email shows <b>Sent → Delivered</b>
+      (no bounce) <b>→ Clicked</b> (they visited your tracked link / mini landing page) <b>→
+      Replied</b> — all free &amp; first-party. (Open-tracking via pixel exists but is off by
+      default — pixels hurt deliverability and report false opens.)
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section>
+    <h2><span class="n">4.9</span> Your control room (on your portfolio)</h2>
+    <p class="sub">A full admin dashboard — total control + full insight. It shows and steers
+       everything, but never sends mail itself, so your site stays safe.</p>
+    <div class="grid three">
+      <div class="card"><h3>📊 Insights</h3><p>Leads, reply rate, meetings, credits used,
+        free-vs-paid spend, and which countries/sources actually reply.</p></div>
+      <div class="card"><h3>🎛️ Control</h3><p>Approve, edit, skip, regenerate, or send any
+        email. Bulk-approve the best. Flip settings (send mode, caps, countries) live.</p></div>
+      <div class="card"><h3>📈 Funnel</h3><p>Watch each lead move from found → emailed →
+        replied, with charts over time. Spot what's working.</p></div>
+    </div>
+  </section>
+
+  <!-- COST -->
+  <section>
+    <h2><span class="n">5</span> What it costs to run</h2>
+    <div class="grid three">
+      <div class="card"><h3>Finding leads</h3><p><span class="pill free">Free</span><br>Public job-board APIs, no keys.</p></div>
+      <div class="card"><h3>Storage + dashboard</h3><p><span class="pill free">Free</span><br>Supabase + GitHub Actions free tiers.</p></div>
+      <div class="card"><h3>Writing emails</h3><p><span class="pill free">Free</span><br>Groq/Gemini free tier. Claude optional, off by default.</p></div>
+      <div class="card"><h3>Finding emails</h3><p><span class="pill free">Free</span><br>In-post emails (29%) + company-site scrape (proven). No paid vendor.</p></div>
+      <div class="card"><h3>Sending</h3><p><span class="pill free">Free</span> in draft mode<br>or one cheap domain to automate.</p></div>
+      <div class="card"><h3>Your time</h3><p>~10 min/day<br>Approve drafts &amp; reply to interested leads.</p></div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU NEED TO DO -->
+  <section>
+    <h2><span class="n">6</span> What you'll need to do</h2>
+    <p class="sub">Almost everything is automated. Here's your short list.</p>
+    <ol class="steps">
+      <li class="you"><b>One-time:</b> grab one <b>free</b> key — <code>GROQ_API_KEY</code>
+        (writing emails). Emails are found free (in-post + site scrape); no finder key needed.
+        (Supabase you already have.)</li>
+      <li class="you"><b>Each day (~10 min):</b> open the dashboard, skim the drafted emails,
+        click "Open in Gmail" on the good ones, send.</li>
+      <li class="you"><b>When someone replies:</b> paste their reply — Claude sorts it and
+        writes your follow-up. You approve.</li>
+      <li class="you"><b>Optional later:</b> buy a $1 side domain to flip on full auto-send.</li>
+    </ol>
+  </section>
+
+  <!-- BUILD STEPS -->
+  <section>
+    <h2><span class="n">7</span> What we're building (in order)</h2>
+    <table>
+      <tr><th>#</th><th>Piece</th><th>What it does</th><th>Status</th></tr>
+      <tr><td>1</td><td>Database</td><td>Tables to track every lead, email, reply</td><td><span class="pill free">Done</span></td></tr>
+      <tr><td>2</td><td>Foundations</td><td>Config file, storage, your profile/pitch</td><td><span class="pill free">Done</span></td></tr>
+      <tr><td>3</td><td>Connectors</td><td>Free LLMs (Groq/Gemini) + free enrichment</td><td><span class="pill free">Done</span></td></tr>
+      <tr><td>4</td><td>Lead finders</td><td>HN, RemoteOK, WWR, YC + scoring</td><td><span class="pill free">Done</span></td></tr>
+      <tr><td>5</td><td>The writer</td><td>Personalized emails + reply sorting</td><td><span class="pill free">Done</span></td></tr>
+      <tr><td>6</td><td>The sender</td><td>Draft mode + click tracking + opt-outs</td><td><span class="pill free">Done</span></td></tr>
+      <tr><td>7</td><td>The conductor</td><td>Nightly run (1:30 AM PKT) + failure alerts</td><td><span class="pill free">Done</span></td></tr>
+      <tr><td>8</td><td>Dashboard + digest</td><td>Review page + daily email with stats</td><td><span class="pill free">Done</span></td></tr>
+    </table>
+    <p class="muted" style="margin-top:12px"><b>Status: live.</b> The engine runs every
+       weeknight and emails you the review digest each morning. Your job: review &amp; send.</p>
+  </section>
+
+  <footer>
+    Outreach Engine · plan overview · built for Muhammad Abdullah ·
+    full technical detail in <code>docs/outreach/IMPLEMENTATION-PLAN.md</code>
+  </footer>
+
+</div>
+</body>
+</html>

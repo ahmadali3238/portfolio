@@ -1,0 +1,95 @@
+{
+  "_comment": "Non-secret Job-Finder settings (safe to commit). Secrets stay in .env.local: GROQ_API_KEY, GEMINI_API_KEY, GMAIL_APP_PASSWORD, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, and the job-source keys JSEARCH_API_KEY (or RAPIDAPI_KEY), CAREERJET_AFFID, JOOBLE_API_KEY. Any value here can be overridden by an env var of the same OUTREACH_* name.",
+  "timezone": "Asia/Dubai",
+  "sources": [
+    "jsearch",
+    "careerjet",
+    "jooble"
+  ],
+  "segments": [
+    "hiring_signal"
+  ],
+  "keywords": [
+    "asset planning",
+    "fixed asset",
+    "asset management",
+    "asset tracking",
+    "inventory",
+    "inventory control",
+    "inventory controller",
+    "stock control",
+    "stock controller",
+    "warehouse",
+    "warehouse supervisor",
+    "storekeeper",
+    "materials controller",
+    "rfid",
+    "barcode",
+    "asset tagging",
+    "cycle count",
+    "stock take",
+    "physical verification",
+    "reconciliation",
+    "logistics coordinator",
+    "supply chain"
+  ],
+  "minScore": 55,
+  "maxNewLeadsPerRun": 25,
+  "maxLocalLeadsPerRun": 8,
+  "localMinScore": 55,
+  "maxProspectLeadsPerRun": 5,
+  "prospectMinScore": 40,
+  "targetCountries": [
+    "uae",
+    "united arab emirates",
+    "dubai",
+    "abu dhabi",
+    "sharjah",
+    "ajman",
+    "qatar",
+    "saudi arabia",
+    "ksa",
+    "bahrain",
+    "kuwait",
+    "oman"
+  ],
+  "excludeCountries": [],
+  "yearsExperience": 7,
+  "skipUnnumberedSenior": true,
+  "maxPostAgeDays": 30,
+  "aiQualify": true,
+  "rateNote": "",
+  "enrichProviders": [
+    "inpost",
+    "freefinder"
+  ],
+  "llmProvider": "groq",
+  "llmPremiumProvider": "gemini",
+  "sendMode": "draft",
+  "autoApprove": false,
+  "dailySendLimit": 15,
+  "sendLocalHours": [
+    9,
+    18
+  ],
+  "followupDays": [
+    3,
+    7,
+    14
+  ],
+  "autoFollowup": false,
+  "fromName": "Ahmad Ali",
+  "fromEmail": "ahmadalibusiness3238@gmail.com",
+  "portfolioUrl": "https://ahmadali3238.vercel.app",
+  "siteUrl": "https://ahmadali3238.vercel.app",
+  "postalAddress": "",
+  "bookingUrl": "",
+  "resumePath": "./scripts/outreach/assets/resume.pdf",
+  "resumeUrl": "https://ahmadali3238.vercel.app/Ahmad-Ali-CV.pdf",
+  "attachWhenDemanded": true,
+  "openPixel": false,
+  "trackLinks": false,
+  "socialLinks": {
+    "linkedin": "https://www.linkedin.com/in/ahmadali3238"
+  }
+}

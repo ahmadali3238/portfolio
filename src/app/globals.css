@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Portfolio Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    --primary: 220 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 70% 60%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 18%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 13% 18%;
+
+    --hero: 220 70% 50%;
+    --hero-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 60% 38%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Portfolio specific colors */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--primary-glow))
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(220 70% 50%) 0%,
+      hsl(260 70% 60%) 100%
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(0 0% 100%) 0%,
+      hsl(220 14% 98%) 100%
+    );
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 4px 6px -1px hsl(220 13% 18% / 0.1);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Chart palette – cool-blue aligned */
+    --chart-1: 220 70% 50%;
+    --chart-2: 260 60% 55%;
+    --chart-3: 190 70% 42%;
+    --chart-4: 280 55% 52%;
+    --chart-5: 200 65% 48%;
+    --chart-success: 152 60% 38%;
+    --chart-failed: 0 72% 52%;
+    --chart-skipped: 38 80% 50%;
+  }
+
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 220 13% 98%;
+
+    --card: 220 13% 12%;
+    --card-foreground: 220 13% 98%;
+
+    --popover: 220 13% 12%;
+    --popover-foreground: 220 13% 98%;
+
+    --primary: 220 70% 60%;
+    --primary-foreground: 220 13% 9%;
+    --primary-glow: 220 70% 70%;
+
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 13% 98%;
+
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 220 13% 15%;
+    --accent-foreground: 220 13% 98%;
+
+    --hero: 220 70% 60%;
+    --hero-foreground: 220 13% 9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 13% 98%;
+
+    --success: 152 55% 48%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 220 70% 60%;
+
+    /* Dark mode specific gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(220 70% 50%),
+      hsl(220 70% 70%)
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(220 70% 60%) 0%,
+      hsl(260 70% 70%) 100%
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(220 13% 12%) 0%,
+      hsl(220 13% 15%) 100%
+    );
+
+    /* Dark mode shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.2);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+
+    --sidebar-background: 220 13% 8%;
+    --sidebar-foreground: 220 13% 95%;
+    --sidebar-primary: 220 70% 60%;
+    --sidebar-primary-foreground: 220 13% 9%;
+    --sidebar-accent: 220 13% 15%;
+    --sidebar-accent-foreground: 220 13% 95%;
+    --sidebar-border: 220 13% 20%;
+    --sidebar-ring: 220 70% 60%;
+
+    /* Chart palette – dark mode */
+    --chart-1: 220 70% 62%;
+    --chart-2: 260 60% 65%;
+    --chart-3: 190 65% 52%;
+    --chart-4: 280 55% 62%;
+    --chart-5: 200 60% 55%;
+    --chart-success: 152 55% 48%;
+    --chart-failed: 0 70% 60%;
+    --chart-skipped: 38 75% 58%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Semantic component utilities */
+@layer components {
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+  .container-content {
+    @apply mx-auto max-w-6xl;
+  }
+  .heading-gradient {
+    @apply text-4xl sm:text-5xl font-bold bg-gradient-hero bg-clip-text text-transparent;
+  }
+  .section-eyebrow {
+    @apply text-lg text-muted-foreground mb-2;
+  }
+  .card-elevated {
+    @apply bg-gradient-card border-0 shadow-card;
+  }
+  .card-featured {
+    @apply bg-gradient-card border-0 shadow-elegant;
+  }
+}
+
+/* Custom Scrollbar Styles - Theme Coherent */
+@layer utilities {
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--primary-glow))
+    );
+    border-radius: 5px;
+    border: 2px solid hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary-glow)),
+      hsl(var(--primary))
+    );
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: hsl(var(--muted));
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
+  }
+
+  /* Thin scrollbar variant for dialogs, modals, etc. */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    border: 1px solid hsl(var(--muted));
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
